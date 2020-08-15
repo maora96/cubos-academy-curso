@@ -80,10 +80,14 @@ const procurarProduto = (resposta) => {
                     if (resposta === 'sim') {
                         let precoUnit = produtos[produto].preco / 100;
                         let precoTotal = precoUnit * produtos[produto].qtd; 
-                        rl.question(`O preço unitário é R$${chalk.green(precoUnit)} e o preco total é R$${chalk.green(precoTotal)}. Deseja pagar agora?`, (resposta) => {
+                        rl.question(`O preço unitário é R$${chalk.green(precoUnit)} e o preco total é R$${chalk.green(precoTotal)}. Deseja pagar agora ou procurar outro produto?`, (resposta) => {
                             if (resposta === 'sim') {
                                 console.log("Obrigada pela preferência e volte sempre!")
                                 rl.close();
+                            } else if (resposta === 'outro produto') {
+                                rl.question("Qual produto está procurando?", (resposta) => {
+                                    procurarProduto(resposta);
+                                })
                             } else {
                                 console.log('Ok! Obrigada. Atendimento encerrado.')
                                 rl.close();
