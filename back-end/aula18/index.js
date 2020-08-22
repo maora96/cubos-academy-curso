@@ -2,7 +2,7 @@ const fs = require("fs");
 
 let newData = [];
 
-/*fs.readFile("cartas.txt", (err, data) => {
+fs.readFile("cartas.txt", (err, data) => {
     let mensagens = null; 
     mensagens = data.toString();
     mensagens = mensagens.split("---")
@@ -26,7 +26,7 @@ let newData = [];
     fs.writeFile('cartas.txt', newData, (err) =>{
         if (err) throw err; 
     })
-}) */
+}) 
 
 let ruas = [];
 let msgs;
