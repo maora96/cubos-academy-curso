@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    max-width:80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.questao {
+    margin-top: 2em;
+}
+
+.color {
+    width: 600px;
+    height: 600px;
+    background-color: red;
+    margin-bottom: 1em;
+}
+
