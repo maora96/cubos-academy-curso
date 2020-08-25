@@ -6,12 +6,13 @@ const body = document.querySelector("body");
 
 let contagem = 10;
 let isLauching = false;
-
+let launched = false;
 
 const launchRocket = () => {
     texto.innerHTML = "Lançamento iniciado!";
     img.setAttribute("src", "https://i.pinimg.com/originals/2b/a6/95/2ba695fd5ecada4d9b337b35e3b7ffbe.gif");
     body.style["background-color"] = "#3e4370";
+    launched = false;
 }
 
 
@@ -29,11 +30,15 @@ button.addEventListener("click", ()=> {
         }, 1000);
         isLauching = true;
     } else {
-        clearInterval(id);
-        button.innerText = "Iniciar contagem regressiva!";
-        texto.innerText = "Missão abortada!";
-        contagem = 10;
-        isLauching = false;
+        if (launched = true) {
+            texto.innerText = "Tarde demais! O foguete já se foi!"
+        } else {
+            clearInterval(id);
+            button.innerText = "Iniciar contagem regressiva!";
+            texto.innerText = "Missão abortada!";
+            contagem = 10;
+            isLauching = false;
+        }
     }
     
 })
