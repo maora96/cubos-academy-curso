@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>todo</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Tarefas 2.0</h1>
+
+        <main>
+            <form>
+                <input type="checkbox" id="all-checkbox">
+                <input type="text" placeholder="O que você precisa fazer?" id="tarefas-input">
+            </form>
+
+            <ul class="tarefas" id="todo">
+
+            </ul>
+
+            <ul class="tarefas" id="done">
+
+            </ul>
+            <div class="main-footer">
+                <div class="counter">
+                    0 itens a fazer
+                </div>
+
+                <div class="filtros">
+                    <button id="todas-btn" class="focused">Todas</button>
+                    <button id="todo-btn">A fazer</button>
+                    <button id="done-btn">Completas</button>
+                </div>
+
+                <button id="limpar-btn">
+                    Limpar completas
+                </button>
+            </div>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>

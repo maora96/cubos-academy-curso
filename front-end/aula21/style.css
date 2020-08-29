@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Zilla Slab', serif;
+}
+
+h1 { 
+    color: palevioletred
+}
+
+main {
+    background: white;
+    padding: 1em;
+    -webkit-box-shadow: 8px 13px 33px 5px rgba(207,207,207,1);
+    -moz-box-shadow: 8px 13px 33px 5px rgba(207,207,207,1);
+    box-shadow: 8px 13px 33px 5px rgba(207,207,207,1);
+}
+
+#tarefas-input {
+    width: 400px;
+    padding: .7em;
+}
+
+main .main-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-footer button {
+    background: white;
+    border: none;
+    font-family: 'Zilla Slab', serif;
+    font-size:1em;
+}
+
+ul {
+    padding-left: 0;
+}
+
+ul li span {
+    font-size: 1.5em;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul#done li {
+    text-decoration: line-through;
+}
+
+ul button {
+    color: white;
+    background: white;
+    border: none;
+    float: right;
+}
+
+ul button:hover {
+    color: palevioletred;
+    border: palevioletred;
+}
+
+.focused {
+    border: 1px solid palevioletred!important;
+}
+
+.filtros {
+    margin-right: 1em;
+}
+
+.counter {
+    margin-right: 1em;
+}
+
+input[type="text"] {
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.2em;
+  }
+
+::-webkit-input-placeholder {
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.2em;
+  }
+  ::-moz-placeholder {
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.2em;
+  }
+  :-ms-input-placeholder {
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.2em;
+  }
+  ::placeholder {
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.2em;
+  }
