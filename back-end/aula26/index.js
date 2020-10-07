@@ -1,7 +1,8 @@
-const Koa = require("koa");
-const bodyparser = require("koa-bodyparser");
+const Koa = require('koa');
+const bodyparser = require('koa-bodyparser');
 
 require('dotenv').config();
+
 const PORT = process.env.PORT || 8000;
 
 const server = new Koa();
@@ -10,4 +11,4 @@ const router = require('./src/routes');
 server.use(bodyparser());
 server.use(router.routes());
 
-server.listen(PORT, () => console.log("Ouvindo porta", PORT));
+server.listen(PORT, () => console.log('Ouvindo porta', PORT));
