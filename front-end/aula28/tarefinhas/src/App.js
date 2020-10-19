@@ -1,6 +1,19 @@
 import React from "react";
 import "./App.css";
 
+function BotaoDeFiltro(props) {
+  const { filtroAtivo, onClick, valor, children } = props;
+
+  return (
+    <button
+      className={filtroAtivo === valor ? "ativo" : ""}
+      onClick={() => onClick(valor)}
+    >
+      {children}
+    </button>
+  );
+}
+
 function App() {
   const [texto, mudarTexto] = React.useState("");
   const [tarefas, mudarTarefas] = React.useState([]);
@@ -83,26 +96,27 @@ function App() {
           </div>
 
           <div className="filtros">
-            <button
-              className={filtro === "todos" ? "ativo" : ""}
-              onClick={() => mudarFiltro("todos")}
+            <BotaoDeFiltro
+              filtroAtivo={filtro}
+              valor="todos"
+              onClick={(valor) => mudarFiltro(valor)}
             >
-              Todos
-            </button>
-
-            <button
-              className={filtro === "a-fazer" ? "ativo" : ""}
-              onClick={() => mudarFiltro("a-fazer")}
+              Todas
+            </BotaoDeFiltro>
+            <BotaoDeFiltro
+              filtroAtivo={filtro}
+              valor="a-fazer"
+              onClick={(valor) => mudarFiltro(valor)}
             >
-              A fazer
-            </button>
-
-            <button
-              className={filtro === "feitas" ? "ativo" : ""}
-              onClick={() => mudarFiltro("feitas")}
+              A Fazer
+            </BotaoDeFiltro>
+            <BotaoDeFiltro
+              filtroAtivo={filtro}
+              valor="feitas"
+              onClick={(valor) => mudarFiltro(valor)}
             >
               Completadas
-            </button>
+            </BotaoDeFiltro>
           </div>
 
           <div>
