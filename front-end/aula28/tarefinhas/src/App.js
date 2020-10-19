@@ -48,22 +48,31 @@ function App() {
           />
         </form>
 
-        <ul className="tarefas" id="a-fazer" hidden={filtro === "feitas"}>
-          {tarefasNaoFeitas.map((tarefa) => (
-            <li>
-              <input type="checkbox" checked={tarefa.completada} />
+        <ul className="tarefas">
+          {tarefasFiltradas.map((tarefa) => (
+            <li className={tarefa.completada ? "completada" : ""}>
+              <input
+                type="checkbox"
+                checked={tarefa.completada || false}
+                onInput={() => {
+                  mudarTarefas(
+                    tarefas.map((t) => {
+                      if (tarefa === t) {
+                        t.completada = !t.completada;
+                      }
+                      return t;
+                    })
+                  );
+                }}
+              />
               <span>{tarefa.nome}</span>
-              <button>Deletar</button>
-            </li>
-          ))}
-        </ul>
-
-        <ul className="tarefas" id="feitas" hidden={filtro === "a-fazer"}>
-          {tarefasFeitas.map((tarefa) => (
-            <li>
-              <input type="checkbox" checked={tarefa.completada} />
-              <span>{tarefa.nome}</span>
-              <button>Deletar</button>
+              <button
+                onClick={() => {
+                  mudarTarefas(tarefas.filter((t) => tarefa !== t));
+                }}
+              >
+                Deletar
+              </button>
             </li>
           ))}
         </ul>
@@ -74,19 +83,36 @@ function App() {
           </div>
 
           <div className="filtros">
-            <button className={filtro === "todos" ? "ativo" : ""}>Todos</button>
+            <button
+              className={filtro === "todos" ? "ativo" : ""}
+              onClick={() => mudarFiltro("todos")}
+            >
+              Todos
+            </button>
 
-            <button className={filtro === "a-fazer" ? "ativo" : ""}>
+            <button
+              className={filtro === "a-fazer" ? "ativo" : ""}
+              onClick={() => mudarFiltro("a-fazer")}
+            >
               A fazer
             </button>
 
-            <button className={filtro === "feitas" ? "ativo" : ""}>
+            <button
+              className={filtro === "feitas" ? "ativo" : ""}
+              onClick={() => mudarFiltro("feitas")}
+            >
               Completadas
             </button>
           </div>
 
           <div>
-            <button>Limpar completadas</button>
+            <button
+              onClick={() => {
+                mudarTarefas(tarefas.filter((t) => !t.completada));
+              }}
+            >
+              Limpar completadas
+            </button>
           </div>
         </div>
       </div>
